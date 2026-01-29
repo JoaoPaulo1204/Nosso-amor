@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nosso Amor 💖</title>
+
+<style>
+html { scroll-behavior: smooth; }
+body { margin:0; font-family:"Segoe UI",sans-serif; background:#111; color:white; }
+
+/* TOPO */
+.topo{
+  position:fixed; top:0; width:100%; background:#000;
+  z-index:1000; padding:10px 0 15px; text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.6);
+}
+.topo img{
+  width:120px;height:120px;object-fit:cover;
+  border-radius:10px;border:3px solid #c71585;
+}
+#contador{display:flex;justify-content:center;gap:15px;margin-top:10px;flex-wrap:wrap;}
+.tempo-item strong{color:#ff4da6;}
+
+.conteudo{margin-top:240px;padding:20px;}
+
+/* ABAS */
+.abas{display:flex;justify-content:center;gap:10px;margin-bottom:25px;}
+.aba-btn{
+  padding:10px 20px;border-radius:20px;border:none;
+  background:#333;color:white;cursor:pointer;transition:0.3s;
+}
+.aba-btn.ativa{background:#c71585;}
+.secao{display:none;animation:fade 0.6s ease;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+/* MOMENTOS */
+.evento{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:60px;
+  gap:20px;
+}
+.evento img,.evento video{
+  width:300px;
+  max-width:90%;
+  border-radius:10px;
+}
+.texto{
+  max-width:420px;
+  line-height:1.6;
+  word-break:break-word; /* impede corte visual */
+}
+.titulo-momento{
+  color:#ff4da6;
+  font-size:1.4rem;
+  margin-bottom:8px;
+}
+
+/* POEMAS */
+.poema-titulo{
+  background:#222;
+  padding:12px;
+  margin-top:10px;
+  cursor:pointer;
+  border-radius:8px;
+  user-select:none;
+}
+.poema-titulo:hover{background:#c71585;}
+.poema-conteudo{
+  display:none;
+  padding:10px 15px;
+  white-space:pre-line; /* mantém quebras */
+  line-height:1.7;
+  user-select:none;
+}
+
+/* POPUP */
+#popup-musica{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);display:flex;
+  align-items:center;justify-content:center;z-index:2000;text-align:center;padding:20px;
+}
+.caixa{background:#1a1a1a;padding:25px;border-radius:15px;max-width:400px;}
+.caixa p{color:#ff4da6;}
+.caixa button{padding:10px 25px;background:#c71585;border:none;color:white;border-radius:8px;cursor:pointer;margin-top:15px;}
+
+.rodape{text-align:center;margin:60px 0 30px;color:#ff4da6;}
+.coracao{font-size:3rem;}
+</style>
+</head>
+
+<body>
+
+<div id="popup-musica">
+  <div class="caixa">
+    <p>Este site foi feito especialmente para você, como uma pequena prova do quanto nosso amor é precioso. 💖</p>
+    <button onclick="tocarMusica()">Seguir</button>
+  </div>
+</div>
+
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="topo">
+  <img src="foto.jpg">
+  <div id="contador"></div>
+</div>
+
+<div class="conteudo">
+
+<div class="abas">
+  <button class="aba-btn ativa" onclick="mostrarSecao('lembrancas', this)">Lembranças</button>
+  <button class="aba-btn" onclick="mostrarSecao('poemas', this)">Poemas</button>
+</div>
+
+<!-- LEMBRANÇAS -->
+<div id="lembrancas" class="secao" style="display:block;">
+<h2 style="text-align:center; color:#ff4da6;">Nossos momentos</h2>
+
+<div class="evento">
+<img src="foto1.jpg">
+<div class="texto">
+<div class="titulo-momento">Nosso primeiro encontro</div>
+Eu arrumei uma desculpa perfeita pra convidar a garota mais linda que eu já vi pra um show de uma banda que eu não ouvia a tempos. Mal sabia eu que, de mãos dadas com essa pessoa maravilhosa, eu me apaixonaria perdidamente pelo seu sorriso.
+</div>
+</div>
+
+<div class="evento">
+<video src="video2.mp4" autoplay muted loop playsinline></video>
+<div class="texto">
+<div class="titulo-momento">O pedido de namoro</div>
+11 de outubro de 2023. O dia em que pedi você em namoro, meio de repente, mas sem arrependimentos, me prendi à você sem pensar duas vezes.
+</div>
+</div>
+
+<div class="evento">
+<img src="foto3.jpg">
+<div class="texto">
+<div class="titulo-momento">Nossas alianças</div>
+Esse momento pra mim é muito especial. Com essas alianças, eu esperava mostrar pro mundo que meu coração pertence à você.
+</div>
+</div>
+
+<div class="evento">
+<img src="foto4.jpg">
+<div class="texto">
+<div class="titulo-momento">Nosso primeiro fim de ano</div>
+O nosso primeiro fim de ano juntinhos foi cheio de alegria, troca de olhares, promessas silenciosas e sorrisos cheios de amor. Eu nunca vou me cansar de passar muitos mais ao seu lado.
+</div>
+</div>
+</div>
+
+<!-- POEMAS -->
+<div id="poemas" class="secao">
+
+<div class="poema-titulo" onclick="togglePoema(this)">Me eterniza Luiza</div>
+<div class="poema-conteudo">
+No brilho doce que a manhã desliza,
+sorri serena a luz que é Luiza.
+Seu riso abre o mundo e o suaviza,
+seu gesto simples tudo harmoniza.
+
+Em cada olhar, um canto que me avisa
+que o amor desperta e em mim eterniza.
+Teu rosto é chama mansa que poetiza,
+teu nome é verso puro que me guia, Luiza.
+
+Teus cachos dançam: brisa que improvisa
+nos fios a música que te eterniza;
+e até o tempo, quando passa, pisa
+de leve ao ver a graça que te irradia, Luiza.
+
+Teu jeito firma a paz que me conduz,
+me acende a alma e nela acende luz;
+e cada riso teu, quando reluza,
+me traz a calma que o amor sempre usa.
+
+Se o mundo é vasto e tanto me indecisa,
+é teu olhar que o tempo atualiza;
+e quando a vida em sombras me precisa,
+é teu carinho que me cicatriza, Luiza.
+
+Assim te guardo — estrela que me guia,
+calor que veste a noite em poesia.
+E em cada verso que meu peito avisa,
+teu nome nasce, vive e eterniza: Luiza
+</div>
+
+<div class="poema-titulo" onclick="togglePoema(this)">Meu universo</div>
+<div class="poema-conteudo">
+A tua ausência
+não é vazio:
+é um céu inteiro
+pressionando o peito.
+
+Quando não estás,
+o mundo perde o eixo,
+as horas andam tortas,
+e eu aprendo a desejar
+como quem reza.
+
+Há em ti
+uma gravidade mansa,
+dessas que puxam sem ferir,
+que prometem queda
+e chamam de abrigo.
+
+Teu corpo
+é território onde o infinito
+decide repousar.
+Na tua pele,
+o mistério ganha calor
+e pede silêncio.
+
+Sou astronauta sem manual,
+voando por instinto,
+porque teu nome,
+dito baixo,
+já é rota suficiente.
+
+Admiro em ti
+essa força que não grita,
+essa beleza que não implora olhar,
+essa chama que arde
+sem precisar provar incêndio.
+
+Quando a saudade aperta,
+é teu vulto que me visita,
+feito canção antiga
+que sabe exatamente
+onde doer.
+
+Te querer
+é sonho acordado,
+é corpo lembrando do outro corpo
+mesmo à distância,
+é desejo que não pede pressa.
+
+E quando teus lábios
+finalmente encontram os meus,
+o universo suspira —
+não explode,
+se inclina.
+
+Teu beijo
+é nascimento lento,
+é o tempo desistindo de correr,
+é o céu, enfim,
+tocando a terra
+e ficando.
+</div>
+
+</div>
+
+<div class="rodape">
+<div class="coracao">❤️ J&L ❤️</div>
+</div>
+
+</div>
+
+<script>
+const inicio=new Date("2023-10-11T00:00:00");
+function atualizarContador(){
+ const agora=new Date();
+ let anos=agora.getFullYear()-inicio.getFullYear();
+ let meses=agora.getMonth()-inicio.getMonth();
+ let dias=agora.getDate()-inicio.getDate();
+ let minutos=agora.getMinutes()-inicio.getMinutes();
+ let segundos=agora.getSeconds()-inicio.getSeconds();
+ if(segundos<0){segundos+=60;minutos--;}
+ if(minutos<0){minutos+=60;dias--;}
+ if(dias<0){const m=new Date(agora.getFullYear(),agora.getMonth(),0);dias+=m.getDate();meses--;}
+ if(meses<0){meses+=12;anos--;}
+ document.getElementById("contador").innerHTML=`
+ <div class="tempo-item"><strong>${anos}</strong><br>anos</div>
+ <div class="tempo-item"><strong>${meses}</strong><br>meses</div>
+ <div class="tempo-item"><strong>${dias}</strong><br>dias</div>
+ <div class="tempo-item"><strong>${minutos}</strong><br>min</div>
+ <div class="tempo-item"><strong>${segundos}</strong><br>s</div>`;
+}
+setInterval(atualizarContador,1000); atualizarContador();
+
+function tocarMusica(){
+ const m=document.getElementById("musica");
+ m.volume=0.2;
+ m.play();
+ document.getElementById("popup-musica").style.display="none";
+}
+function mostrarSecao(id,btn){
+ document.querySelectorAll(".secao").forEach(s=>s.style.display="none");
+ document.getElementById(id).style.display="block";
+ document.querySelectorAll(".aba-btn").forEach(b=>b.classList.remove("ativa"));
+ btn.classList.add("ativa");
+}
+function togglePoema(el){
+ const p=el.nextElementSibling;
+ p.style.display=p.style.display==="block"?"none":"block";
+}
+</script>
+
+</body>
+</html>
